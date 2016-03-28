@@ -1,0 +1,38 @@
+var init = function() {
+  console.log('app started');
+
+// we want to trigger an event when u click the button.
+  var button = document.getElementById('add-button');
+  var form = document.getElementById('film-form');
+
+  var handleClick = function() {
+    var input = document.getElementById('film-text-input').value;
+ //   console.log(message.value);
+  // console.log('Woo-woo I got clicked!');
+    // var node = document.createElement('li');
+    // var textnode = document.createTextNode(input)
+    // node.appendChild(textnode);
+    // document.getElementById('film-list').appendChild(node);
+  
+    var li = document.createElement('li');
+    li.innerText = input;
+    var ul = document.getElementById('film-list');
+    ul.appendChild(li);
+    
+    ul.style.color = 'purple';
+
+
+  }
+ // button.onclick = handleClick;
+ form.onsubmit = function(event){
+  event.preventDefault();
+  // console.log(event);
+  handleClick();  // once form submitted invoke the function
+ }  // now you see the list for a short time then it refreshes
+};
+
+window.onload = init;   // a callback, so no () to call it: it runs when onload is invoked.
+
+
+
+

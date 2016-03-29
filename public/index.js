@@ -7,6 +7,8 @@ var init = function(){
   var palaver = document.getElementById('quote');
   var author = document.getElementById('author');
 
+  var lastValue = undefined;
+
   var quotes = [
     {'text': "Visual Basic is the way forward, I don't know why we are doing JavaScript.", 
     'author': 'Jay Chetty'},
@@ -38,10 +40,11 @@ var init = function(){
     ul.appendChild(li);
   }
 
-//--
+//--remove li when clicked
     function getEventTarget(e) {
-        e = e || window.event;
-        return e.target || e.srcElement; 
+        // e = e || window.event;
+        // return e.target || e.srcElement;   e.srcElement is for old IE versions
+        return e.target ; 
     }
     
     ul.onclick = function(event) {
@@ -49,10 +52,6 @@ var init = function(){
         target.parentNode.removeChild(target);
        // alert(target.innerHTML);
     };
-
-//--
-
-
 
 
 
@@ -62,20 +61,13 @@ var init = function(){
   } // form
 
 
+
+
+
+
+
+
 }; // init
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
